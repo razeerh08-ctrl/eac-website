@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>EAC - Form Pendaftaran</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<form onsubmit="kirimWA(); return false;">
+  <input type="text" id="nama" placeholder="Nama kamu" required>
+  <input type="number" id="umur" placeholder="Umur" required>
+  <input type="text" id="status" placeholder="Status (Pelajar/Mahasiswa/dll)" required>
+  <input type="text" id="tiktok" placeholder="Nama akun TikTok" required>
+  <input type="text" id="film" placeholder="Film/Animasi yang disukai" required>
+  <textarea id="alasan" placeholder="Alasan ingin join EAC apa" required></textarea>
+  <button type="submit">Kirim</button>
+</form>
 
-  <div class="navbar">
-    <h2>EAC</h2>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="form.html">Daftar</a>
-      <a href="tentang.html">Tentang</a>
-    </div>
-  </div>
+<script>
+function kirimWA() {
+  var nama = document.getElementById("nama").value;
+  var umur = document.getElementById("umur").value;
+  var status = document.getElementById("status").value;
+  var tiktok = document.getElementById("tiktok").value;
+  var film = document.getElementById("film").value;
+  var alasan = document.getElementById("alasan").value;
 
-  <div class="container">
-    <h1>Form Pendaftaran Creator</h1>
+  var pesan = "Hallo owner EAC,%0A%0ASaya mau mendaftar menjadi konten kreator astronomy di EAC. Nih formulir saya:%0A%0A" +
+              "Nama: " + nama + "%0A" +
+              "Umur: " + umur + "%0A" +
+              "Status: " + status + "%0A" +
+              "Nama akun TikTok: " + tiktok + "%0A" +
+              "Film/Animasi yang disukai: " + film + "%0A" +
+              "Alasan ingin join EAC: " + alasan;
 
-    <form>
-      <input type="text" placeholder="Nama Lengkap" required>
-      <input type="text" placeholder="Username Sosial Media" required>
-      <input type="number" placeholder="Jumlah Followers" required>
-      <textarea placeholder="Kenapa ingin bergabung?" required></textarea>
-      <button type="submit">Kirim</button>
-    </form>
-
-  </div>
-
-</body>
-</html>
+  window.open("https://wa.me/6283865255697?text=" + pesan, "_blank");
+}
+</script>

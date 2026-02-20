@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basis Data Kosmik — EAC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 🌌 Background -->
+  <div class="stars"></div>
+
+  <section class="system-page">
+    <h1>Basis Data Kosmik</h1>
+    <p class="subtitle">Pusat Informasi Astronomi Terbuka</p>
+
+    <!-- 🔎 Filter -->
+    <div class="filter-buttons">
+      <button onclick="filterSelection('all')">Semua</button>
+      <button onclick="filterSelection('planet')">Planet</button>
+      <button onclick="filterSelection('bintang')">Bintang</button>
+      <button onclick="filterSelection('galaksi')">Galaksi</button>
+      <button onclick="filterSelection('fenomena')">Fenomena</button>
+    </div>
+
+    <!-- 🪐 Cards -->
+    <div class="card-container">
+
+      <div class="card planet">
+        <h3>Saturnus</h3>
+        <p>Planet bercincin dengan sistem cincin paling indah.</p>
+      </div>
+
+      <div class="card bintang">
+        <h3>Matahari</h3>
+        <p>Bintang pusat tata surya yang memberi kehidupan.</p>
+      </div>
+
+      <div class="card galaksi">
+        <h3>Bimasakti</h3>
+        <p>Galaksi spiral tempat tata surya kita berada.</p>
+      </div>
+
+      <div class="card fenomena">
+        <h3>Black Hole</h3>
+        <p>Objek dengan gravitasi sangat kuat hingga cahaya tak bisa lolos.</p>
+      </div>
+
+    </div>
+
+    <br><br>
+    <button onclick="goBack()">Kembali</button>
+
+  </section>
+
+  <script>
+    function filterSelection(category) {
+      let cards = document.getElementsByClassName("card");
+
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].style.display = "none";
+      }
+
+      if (category === "all") {
+        for (let i = 0; i < cards.length; i++) {
+          cards[i].style.display = "block";
+        }
+      } else {
+        let selected = document.getElementsByClassName(category);
+        for (let i = 0; i < selected.length; i++) {
+          selected[i].style.display = "block";
+        }
+      }
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    // Default tampil semua
+    filterSelection('all');
+  </script>
+
+</body>
+</html>

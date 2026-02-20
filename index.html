@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Portal</title>
+<title>EAC Portal Super Realistis</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
   <div class="dropdown">
     <button class="dropbtn">EAC TikTok</button>
     <div class="dropdown-content">
-      <a href="https://www.tiktok.com/@razeerh.edukasi?_r=1&_t=ZS-9441jbhB0hV" target="_blank">Owner Account</a>
+      <a href="https://www.tiktok.com/@razeerh.edukesi?_r=1&_t=ZS-9441jbhB0hV" target="_blank">Owner Account</a>
       <a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" target="_blank">Official Account</a>
     </div>
   </div>
@@ -38,6 +38,7 @@
   </div>
   <p>Jelajahi alam semesta bersama EAC</p>
   <div class="rocket" id="rocket">🚀</div>
+  <div class="rocket-trail" id="trail"></div>
   <div class="progress-bar"><div class="progress"></div></div>
   <span id="percent">0%</span>
   <div class="btn-group">
@@ -46,9 +47,9 @@
   </div>
 </div>
 
-<!-- AUDIO -->
-<audio id="bgSound" loop src="assets/audio/space-ambient.mp3"></audio>
-<audio id="rocketSound" src="assets/audio/rocket-launch.mp3"></audio>
+<!-- AUDIO ONLINE -->
+<audio id="bgSound" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+<audio id="rocketSound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
 
 <!-- JS -->
 <script>
@@ -57,6 +58,7 @@ const bar = document.querySelector(".progress");
 const percent = document.getElementById("percent");
 const loading = document.getElementById("loading");
 const rocket = document.getElementById("rocket");
+const trail = document.getElementById("trail");
 const bgSound = document.getElementById("bgSound");
 const rocketSound = document.getElementById("rocketSound");
 const startBtn = document.getElementById("startBtn");
@@ -79,16 +81,17 @@ startBtn.addEventListener("click", () => {
       clearInterval(interval);
       rocketSound.play();
       rocket.classList.add("launch");
+      trail.classList.add("trail-animation");
       loading.classList.add("shake");
       setTimeout(()=>{
         bgSound.pause();
         loading.style.opacity="0";
-        setTimeout(()=>{ loading.style.display="none"; },800);
-      },1800);
+        setTimeout(()=>{ loading.style.display="none"; },1000);
+      },2000);
     }
-  },30);
+  },25);
 });
 </script>
 
 </body>
-  </html>
+</html>

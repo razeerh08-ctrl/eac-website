@@ -1,43 +1,94 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EAC — Education Astronomy Creator</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAC Portal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 🌌 Background Stars -->
-  <div class="stars"></div>
-
-  <!-- 🕳 Loading Screen -->
-  <div id="loading-screen">
-    <div class="logo-container">
-      <div class="blackhole"></div>
-      <div class="logo-text">EAC</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="edukasi.html">Edukasi</a>
+  <div class="dropdown">
+    <button class="dropbtn">EAC TikTok</button>
+    <div class="dropdown-content">
+      <a href="https://www.tiktok.com/@razeerh.edukasi?_r=1&_t=ZS-9441jbhB0hV" target="_blank">Owner Account</a>
+      <a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" target="_blank">Official Account</a>
     </div>
-
-    <p id="loading-text">Menghubungkan ke Observatorium...</p>
-
-    <div class="loading-bar">
-      <div id="progress"></div>
-    </div>
-
-    <span id="percent">0%</span>
   </div>
-
-  <!-- 🌠 Welcome Section -->
-  <section id="welcome" class="hidden">
-    <div class="welcome-content">
-      <h1>EAC</h1>
-      <h2>Education Astronomy Creator</h2>
-      <h3>SELAMAT DATANG<br>PECINTA ASTRONOMY</h3>
-      <p>Jelajahi alam semesta bersama komunitas kreator astronomi.</p>
-      <button onclick="enterSystem()">Mulai Eksplorasi</button>
+  <div class="dropdown">
+    <button class="dropbtn">EAC WA</button>
+    <div class="dropdown-content">
+      <a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" target="_blank">Komunitas</a>
+      <a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" target="_blank">Saluran</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <script src="script.js"></script>
+<!-- LOADING SCREEN -->
+<div class="loading-screen" id="loading">
+  <div class="stars"></div>
+  <div class="blackhole"></div>
+  <div class="logo-circle">
+    <h1>Education Astronomy Creator</h1>
+    <h2 class="eac-glow">EAC</h2>
+  </div>
+  <p>Jelajahi alam semesta bersama EAC</p>
+  <div class="rocket" id="rocket">🚀</div>
+  <div class="progress-bar"><div class="progress"></div></div>
+  <span id="percent">0%</span>
+  <div class="btn-group">
+    <button id="startBtn">Mulai</button>
+    <button id="muteBtn">🔊</button>
+  </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgSound" loop src="assets/audio/space-ambient.mp3"></audio>
+<audio id="rocketSound" src="assets/audio/rocket-launch.mp3"></audio>
+
+<!-- JS -->
+<script>
+let progress = 0, muted = false;
+const bar = document.querySelector(".progress");
+const percent = document.getElementById("percent");
+const loading = document.getElementById("loading");
+const rocket = document.getElementById("rocket");
+const bgSound = document.getElementById("bgSound");
+const rocketSound = document.getElementById("rocketSound");
+const startBtn = document.getElementById("startBtn");
+const muteBtn = document.getElementById("muteBtn");
+bgSound.volume = 0.3; rocketSound.volume = 0.7;
+
+muteBtn.addEventListener("click", () => {
+  muted = !muted;
+  bgSound.muted = muted; rocketSound.muted = muted;
+  muteBtn.textContent = muted ? "🔇" : "🔊";
+});
+
+startBtn.addEventListener("click", () => {
+  bgSound.play();
+  let interval = setInterval(() => {
+    progress += 1;
+    bar.style.width = progress + "%";
+    percent.textContent = progress + "%";
+    if(progress >= 100){
+      clearInterval(interval);
+      rocketSound.play();
+      rocket.classList.add("launch");
+      loading.classList.add("shake");
+      setTimeout(()=>{
+        bgSound.pause();
+        loading.style.opacity="0";
+        setTimeout(()=>{ loading.style.display="none"; },800);
+      },1800);
+    }
+  },30);
+});
+</script>
+
 </body>
-</html>
+  </html>

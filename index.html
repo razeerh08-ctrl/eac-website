@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Portal Super Realistis</title>
+<title>EAC Portal Final</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -51,33 +51,32 @@
 <audio id="bgSound" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
 <audio id="rocketSound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
 
-<!-- JS -->
 <script>
-let progress = 0, muted = false;
-const bar = document.querySelector(".progress");
-const percent = document.getElementById("percent");
-const loading = document.getElementById("loading");
-const rocket = document.getElementById("rocket");
-const trail = document.getElementById("trail");
-const bgSound = document.getElementById("bgSound");
-const rocketSound = document.getElementById("rocketSound");
-const startBtn = document.getElementById("startBtn");
-const muteBtn = document.getElementById("muteBtn");
-bgSound.volume = 0.3; rocketSound.volume = 0.7;
+let progress=0, muted=false;
+const bar=document.querySelector(".progress");
+const percent=document.getElementById("percent");
+const loading=document.getElementById("loading");
+const rocket=document.getElementById("rocket");
+const trail=document.getElementById("trail");
+const bgSound=document.getElementById("bgSound");
+const rocketSound=document.getElementById("rocketSound");
+const startBtn=document.getElementById("startBtn");
+const muteBtn=document.getElementById("muteBtn");
+bgSound.volume=0.3; rocketSound.volume=0.7;
 
-muteBtn.addEventListener("click", () => {
-  muted = !muted;
-  bgSound.muted = muted; rocketSound.muted = muted;
-  muteBtn.textContent = muted ? "🔇" : "🔊";
+muteBtn.addEventListener("click",()=>{
+  muted=!muted;
+  bgSound.muted=muted; rocketSound.muted=muted;
+  muteBtn.textContent=muted?"🔇":"🔊";
 });
 
-startBtn.addEventListener("click", () => {
+startBtn.addEventListener("click",()=>{
   bgSound.play();
-  let interval = setInterval(() => {
-    progress += 1;
-    bar.style.width = progress + "%";
-    percent.textContent = progress + "%";
-    if(progress >= 100){
+  let interval=setInterval(()=>{
+    progress+=1;
+    bar.style.width=progress+"%";
+    percent.textContent=progress+"%";
+    if(progress>=100){
       clearInterval(interval);
       rocketSound.play();
       rocket.classList.add("launch");

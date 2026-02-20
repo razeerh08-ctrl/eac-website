@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>EAC - Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EAC — Education Astronomy Creator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="navbar">
-    <h2>EAC</h2>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="form.html">Daftar</a>
-      <a href="tentang.html">Tentang</a>
+  <!-- 🌌 Background Stars -->
+  <div class="stars"></div>
+
+  <!-- 🕳 Loading Screen -->
+  <div id="loading-screen">
+    <div class="logo-container">
+      <div class="blackhole"></div>
+      <div class="logo-text">EAC</div>
     </div>
+
+    <p id="loading-text">Menghubungkan ke Observatorium...</p>
+
+    <div class="loading-bar">
+      <div id="progress"></div>
+    </div>
+
+    <span id="percent">0%</span>
   </div>
 
-  <div class="container">
-    <h1>Explore The Universe</h1>
-    <p>Portal Edukasi Astronomy untuk konten kreator dan pecinta luar angkasa.</p>
-    <a href="form.html" class="btn">Daftar Sekarang</a>
-  </div>
+  <!-- 🌠 Welcome Section -->
+  <section id="welcome" class="hidden">
+    <div class="welcome-content">
+      <h1>EAC</h1>
+      <h2>Education Astronomy Creator</h2>
+      <h3>SELAMAT DATANG<br>PECINTA ASTRONOMY</h3>
+      <p>Jelajahi alam semesta bersama komunitas kreator astronomi.</p>
+      <button onclick="enterSystem()">Mulai Eksplorasi</button>
+    </div>
+  </section>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -3,55 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Official Portal</title>
-
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-
-<meta property="og:title" content="EAC Official Portal">
-<meta property="og:description" content="Portal resmi EAC - Explore. Learn. Connect.">
-<meta property="og:type" content="website">
+<title>EAC Portal</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-background:black;
+background:#000;
 color:white;
 font-family:Arial, sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
 flex-direction:column;
+height:100vh;
 overflow:hidden;
 position:relative;
 }
 
-/* Stars */
+/* Background Stars */
 body::before{
 content:"";
 position:absolute;
 width:200%;
 height:200%;
-background:radial-gradient(white 1px,transparent 1px);
+background:radial-gradient(white 1px, transparent 1px);
 background-size:50px 50px;
 opacity:0.05;
-animation:moveStars 60s linear infinite;
+animation:stars 60s linear infinite;
 pointer-events:none;
 z-index:-1;
 }
 
-@keyframes moveStars{
+@keyframes stars{
 from{transform:translate(0,0);}
-to{transform:translate(-500px,-500px);}
+to{transform:translate(-400px,-400px);}
 }
 
-/* Atom Logo */
-.atom-logo{
+/* ===== ATOM LOGO CLEAN ===== */
+.atom{
 position:relative;
-width:170px;
-height:170px;
-margin-bottom:30px;
+width:200px;
+height:200px;
+margin-bottom:40px;
+animation:spin 12s linear infinite;
 }
 
 .ring{
@@ -61,29 +60,19 @@ height:100%;
 border:2px solid #00f7ff;
 border-radius:50%;
 box-shadow:0 0 20px #00f7ff;
-animation:spin 6s linear infinite;
 }
 
 .ring:nth-child(2){
 transform:rotate(60deg);
-animation-duration:5s;
 }
 
 .ring:nth-child(3){
 transform:rotate(120deg);
-animation-duration:7s;
 }
 
-.core{
-position:absolute;
-top:50%;
-left:50%;
-width:18px;
-height:18px;
-background:#00f7ff;
-border-radius:50%;
-transform:translate(-50%, -50%);
-box-shadow:0 0 20px #00f7ff;
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 .logo-text{
@@ -92,21 +81,16 @@ top:50%;
 width:100%;
 text-align:center;
 transform:translateY(-50%);
-font-size:26px;
-letter-spacing:4px;
+font-size:30px;
+letter-spacing:6px;
 font-weight:bold;
 text-shadow:0 0 15px #a020f0;
 }
 
-@keyframes spin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
 /* Button */
-.button{
-margin-top:40px;
-padding:14px 35px;
+.btn{
+margin-top:30px;
+padding:14px 40px;
 border:2px solid #00f7ff;
 background:transparent;
 color:#00f7ff;
@@ -116,7 +100,7 @@ cursor:pointer;
 transition:0.3s;
 }
 
-.button:hover{
+.btn:hover{
 background:#00f7ff;
 color:black;
 box-shadow:0 0 20px #00f7ff;
@@ -141,38 +125,33 @@ z-index:9999;
 
 <body>
 
-<div class="atom-logo">
+<div class="atom">
 <div class="ring"></div>
 <div class="ring"></div>
 <div class="ring"></div>
-<div class="core"></div>
 <div class="logo-text">EAC</div>
 </div>
 
-<button class="button" onclick="startSystem()">MASUK KE WEB</button>
+<button class="btn" onclick="startSystem()">MASUK KE WEB</button>
 
 <div id="loading">
-<div class="atom-logo">
+<div class="atom">
 <div class="ring"></div>
 <div class="ring"></div>
 <div class="ring"></div>
-<div class="core"></div>
 <div class="logo-text">EAC</div>
 </div>
-<p style="color:#00f7ff;letter-spacing:3px;margin-top:20px;">
+<p style="margin-top:20px; letter-spacing:3px; color:#00f7ff;">
 INITIALIZING SYSTEM...
 </p>
 </div>
 
-<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
-
 <script>
 function startSystem(){
-document.getElementById("clickSound").play();
 document.getElementById("loading").style.display="flex";
 setTimeout(function(){
 window.location.href="portal.html";
-},2500);
+},2000);
 }
 </script>
 

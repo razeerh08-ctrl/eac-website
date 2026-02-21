@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal EAC</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+background:#000;
+font-family:Arial, sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* Stars background */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(white 1px,transparent 1px);
+background-size:50px 50px;
+opacity:0.05;
+animation:stars 80s linear infinite;
+z-index:-1;
+pointer-events:none;
+}
+
+@keyframes stars{
+from{transform:translate(0,0);}
+to{transform:translate(-500px,-500px);}
+}
+
+/* Header */
+.header{
+margin-top:60px;
+}
+.status{
+color:#00ff88;
+letter-spacing:3px;
+animation:blink 1.5s infinite;
+font-size:14px;
+}
+.title{
+letter-spacing:6px;
+font-size:28px;
+margin:10px 0;
+text-shadow:0 0 15px #a020f0;
+}
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0.4;}
+100%{opacity:1;}
+}
+
+/* Cards */
+.card{
+width:90%;
+max-width:420px;
+margin:20px auto;
+padding:20px;
+background:rgba(255,255,255,0.05);
+border:1px solid #a020f0;
+border-radius:15px;
+text-decoration:none;
+color:white;
+display:block;
+opacity:0;
+transform:translateY(40px);
+animation:appear 0.8s forwards;
+}
+
+.card:nth-of-type(1){animation-delay:0.3s;}
+.card:nth-of-type(2){animation-delay:0.6s;}
+.card:nth-of-type(3){animation-delay:0.9s;}
+.card:nth-of-type(4){animation-delay:1.2s;}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+box-shadow:0 0 15px #a020f0;
+}
+}
+
+.card:hover{
+box-shadow:0 0 30px #a020f0;
+transform:translateY(-6px);
+transition:0.3s;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="status">🟢 Sistem Online</div>
+<div class="title">Portal EAC</div>
+</div>
+
+<a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" class="card" target="_blank">
+<h3>Saluran WhatsApp</h3>
+<p>Gabunglah ke saluran kami untuk mendapatkan informasi penting</p>
+</a>
+
+<a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" class="card" target="_blank">
+<h3>Komunitas EAC</h3>
+<p>Menuju masuk ke utama EAC</p>
+</a>
+
+<a href="https://razeerh08-ctrl.github.io/eac-registration/" class="card" target="_blank">
+<h3>Website Pendaftaran EAC</h3>
+<p>Tempat pendaftaran resmi untuk menjadi kreator EAC</p>
+</a>
+
+<a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" class="card" target="_blank">
+<h3>Official Account EAC</h3>
+<p>Menuju ke akun base EAC</p>
+</a>
+
+</body>
+  </html>

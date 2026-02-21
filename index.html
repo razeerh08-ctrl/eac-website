@@ -3,94 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Portal</title>
-<link rel="stylesheet" href="style.css">
+<title>Welcome - EAC</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Background bintang */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+    animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+    from { transform: translate(0,0); }
+    to { transform: translate(-500px,-500px); }
+}
+
+/* Logo Atom */
+.atom {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 30px;
+}
+
+.ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00f7ff;
+    border-radius: 50%;
+    animation: rotate 6s linear infinite;
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+.ring:nth-child(2) {
+    transform: rotate(60deg);
+}
+
+.ring:nth-child(3) {
+    transform: rotate(120deg);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Tulisan EAC */
+.logo-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px #a020f0;
+}
+
+/* Welcome Text */
+h1 {
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 3px;
+    line-height: 1.6;
+    text-shadow: 0 0 10px white;
+}
+
+/* Status */
+.status {
+    margin-top: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.status span {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* Button */
+.button {
+    margin-top: 40px;
+    padding: 12px 30px;
+    border: 2px solid #00f7ff;
+    color: #00f7ff;
+    background: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #00f7ff;
+    color: black;
+    box-shadow: 0 0 20px #00f7ff;
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="edukasi.html">Edukasi</a>
-  <div class="dropdown">
-    <button class="dropbtn">EAC TikTok</button>
-    <div class="dropdown-content">
-      <a href="https://www.tiktok.com/@razeerh.edukesi?_r=1&_t=ZS-9441jbhB0hV" target="_blank">Owner Account</a>
-      <a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" target="_blank">Official Account</a>
-    </div>
-  </div>
-  <div class="dropdown">
-    <button class="dropbtn">EAC WA</button>
-    <div class="dropdown-content">
-      <a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" target="_blank">Komunitas</a>
-      <a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" target="_blank">Saluran</a>
-    </div>
-  </div>
-</nav>
-
-<!-- LOADING SCREEN -->
-<div class="loading-screen" id="loading">
-  <div class="stars"></div>
-  <div class="blackhole"></div>
-  <div class="logo-circle">
-    <h1>Education Astronomy Creator</h1>
-    <h2 class="eac-glow">EAC</h2>
-  </div>
-  <p>Jelajahi alam semesta bersama EAC</p>
-  <div class="rocket" id="rocket">🚀</div>
-  <div class="rocket-trail" id="trail"></div>
-  <div class="progress-bar"><div class="progress"></div></div>
-  <span id="percent">0%</span>
-  <div class="btn-group">
-    <button id="startBtn">Mulai</button>
-    <button id="muteBtn">🔊</button>
-  </div>
+<div class="atom">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="logo-text">EAC</div>
 </div>
 
-<!-- AUDIO ONLINE -->
-<audio id="bgSound" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
-<audio id="rocketSound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
+<h1>
+HALO SEMUANYA<br>
+SELAMAT DATANG<br>
+DI WEB EAC
+</h1>
 
-<script>
-let progress=0, muted=false;
-const bar=document.querySelector(".progress");
-const percent=document.getElementById("percent");
-const loading=document.getElementById("loading");
-const rocket=document.getElementById("rocket");
-const trail=document.getElementById("trail");
-const bgSound=document.getElementById("bgSound");
-const rocketSound=document.getElementById("rocketSound");
-const startBtn=document.getElementById("startBtn");
-const muteBtn=document.getElementById("muteBtn");
-bgSound.volume=0.3; rocketSound.volume=0.7;
+<div class="status">
+SISTEM PORTAL : <span>ONLINE</span>
+</div>
 
-muteBtn.addEventListener("click",()=>{
-  muted=!muted;
-  bgSound.muted=muted; rocketSound.muted=muted;
-  muteBtn.textContent=muted?"🔇":"🔊";
-});
-
-startBtn.addEventListener("click",()=>{
-  bgSound.play();
-  let interval=setInterval(()=>{
-    progress+=1;
-    bar.style.width=progress+"%";
-    percent.textContent=progress+"%";
-    if(progress>=100){
-      clearInterval(interval);
-      rocketSound.play();
-      rocket.classList.add("launch");
-      trail.classList.add("trail-animation");
-      loading.classList.add("shake");
-      setTimeout(()=>{
-        bgSound.pause();
-        loading.style.opacity="0";
-        setTimeout(()=>{ loading.style.display="none"; },1000);
-      },2000);
-    }
-  },25);
-});
-</script>
+<a href="portal.html" class="button">MASUK KE WEB ></a>
 
 </body>
 </html>

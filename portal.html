@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal EAC</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Background bintang */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+    animation: moveStars 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    from { transform: translate(0,0); }
+    to { transform: translate(-500px,-500px); }
+}
+
+h2 {
+    margin-top: 40px;
+    color: #00ff88;
+    letter-spacing: 2px;
+}
+
+h1 {
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+/* Card Style */
+.card {
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #a020f0;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px #a020f0;
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🟢 SISTEM ONLINE</h2>
+<h1>PORTAL EAC</h1>
+
+<div class="card">
+<h3>Saluran WhatsApp</h3>
+<p>Gabunglah ke saluran kami untuk mendapatkan informasi penting terbaru.</p>
+</div>
+
+<div class="card">
+<h3>Komunitas EAC</h3>
+<p>Masuk ke pusat komunitas utama EAC dan berdiskusi bersama anggota lainnya.</p>
+</div>
+
+<div class="card">
+<h3>Website Pendaftaran EAC</h3>
+<p>Tempat pendaftaran resmi untuk menjadi kreator dan bagian dari EAC.</p>
+</div>
+
+<div class="card">
+<h3>Official Account EAC</h3>
+<p>Kunjungi akun base resmi EAC untuk update dan konten terbaru.</p>
+</div>
+
+</body>
+  </html>

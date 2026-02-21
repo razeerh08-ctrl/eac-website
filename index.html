@@ -3,156 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Portal</title>
+<title>EAC Community</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
 body{
-background:#000;
+background:black;
 color:white;
-font-family:Arial, sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-height:100vh;
 overflow:hidden;
-position:relative;
 }
 
-/* Background Stars */
+/* 🌌 Galaxy Background */
 body::before{
 content:"";
-position:absolute;
+position:fixed;
 width:200%;
 height:200%;
-background:radial-gradient(white 1px, transparent 1px);
-background-size:50px 50px;
-opacity:0.05;
-animation:stars 60s linear infinite;
-pointer-events:none;
-z-index:-1;
+top:-50%;
+left:-50%;
+background:
+radial-gradient(circle at 20% 30%, rgba(0,255,255,0.2), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,0,255,0.2), transparent 40%),
+radial-gradient(circle at 50% 50%, rgba(0,100,255,0.15), transparent 40%);
+animation:moveGalaxy 40s linear infinite alternate;
+z-index:-2;
 }
 
-@keyframes stars{
+@keyframes moveGalaxy{
 from{transform:translate(0,0);}
-to{transform:translate(-400px,-400px);}
+to{transform:translate(200px,150px);}
 }
 
-/* ===== ATOM LOGO CLEAN ===== */
-.atom{
+/* ✨ Stars */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+from{opacity:0.3;}
+to{opacity:1;}
+}
+
+/* 🚀 Opening Section */
+#opening{
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:1s;
+}
+
+/* ⚛ Atom */
+.atom-container{
 position:relative;
 width:200px;
 height:200px;
-margin-bottom:40px;
-animation:spin 12s linear infinite;
+animation:spinAtom 20s linear infinite;
 }
 
-.ring{
-position:absolute;
-width:100%;
-height:100%;
-border:2px solid #00f7ff;
-border-radius:50%;
-box-shadow:0 0 20px #00f7ff;
-}
-
-.ring:nth-child(2){
-transform:rotate(60deg);
-}
-
-.ring:nth-child(3){
-transform:rotate(120deg);
-}
-
-@keyframes spin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
-.logo-text{
+.nucleus{
 position:absolute;
 top:50%;
-width:100%;
-text-align:center;
-transform:translateY(-50%);
-font-size:30px;
-letter-spacing:6px;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:28px;
 font-weight:bold;
-text-shadow:0 0 15px #a020f0;
+text-shadow:0 0 20px #00ffff;
 }
 
-/* Button */
-.btn{
-margin-top:30px;
-padding:14px 40px;
-border:2px solid #00f7ff;
-background:transparent;
-color:#00f7ff;
-font-weight:bold;
-letter-spacing:2px;
+.orbit{
+position:absolute;
+width:200px;
+height:80px;
+border:2px solid rgba(0,255,255,0.6);
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.orbit1{ transform:translate(-50%,-50%) rotate(0deg); }
+.orbit2{ transform:translate(-50%,-50%) rotate(60deg); }
+.orbit3{ transform:translate(-50%,-50%) rotate(120deg); }
+
+.electron{
+position:absolute;
+width:10px;
+height:10px;
+background:#00ffff;
+border-radius:50%;
+box-shadow:0 0 10px #00ffff;
+}
+
+.e1{ animation:move1 4s linear infinite; }
+.e2{ animation:move2 6s linear infinite; }
+.e3{ animation:move3 5s linear infinite; }
+
+@keyframes move1{
+0%{ transform:rotate(0deg) translateX(100px) rotate(0deg); }
+100%{ transform:rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes move2{
+0%{ transform:rotate(0deg) translateX(100px) rotate(0deg); }
+100%{ transform:rotate(-360deg) translateX(100px) rotate(360deg); }
+}
+@keyframes move3{
+0%{ transform:rotate(0deg) translateX(100px) rotate(0deg); }
+100%{ transform:rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes spinAtom{
+0%{ transform:rotate(0deg); }
+100%{ transform:rotate(360deg); }
+}
+
+/* Welcome Text */
+.welcome{
+margin-top:40px;
+text-align:center;
+font-size:14px;
+opacity:0;
+animation:fadeIn 2s forwards;
+animation-delay:2s;
+text-shadow:0 0 10px #00ffff;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* 📋 Form */
+.container{
+max-width:600px;
+margin:80px auto;
+padding:30px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border-radius:20px;
+box-shadow:0 0 40px rgba(0,255,255,0.4);
+display:none;
+}
+
+input, textarea, select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.1);
+color:white;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#00ffff,#ff00ff);
 cursor:pointer;
+font-weight:bold;
 transition:0.3s;
 }
 
-.btn:hover{
-background:#00f7ff;
-color:black;
-box-shadow:0 0 20px #00f7ff;
-}
-
-/* Loading */
-#loading{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:none;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
+button:hover{
+transform:scale(1.05);
 }
 </style>
 </head>
 
 <body>
 
-<div class="atom">
-<div class="ring"></div>
-<div class="ring"></div>
-<div class="ring"></div>
-<div class="logo-text">EAC</div>
+<div id="opening">
+<div class="atom-container">
+<div class="nucleus">EAC</div>
+<div class="orbit orbit1"></div>
+<div class="orbit orbit2"></div>
+<div class="orbit orbit3"></div>
+<div class="electron e1"></div>
+<div class="electron e2"></div>
+<div class="electron e3"></div>
 </div>
 
-<button class="btn" onclick="startSystem()">MASUK KE WEB</button>
-
-<div id="loading">
-<div class="atom">
-<div class="ring"></div>
-<div class="ring"></div>
-<div class="ring"></div>
-<div class="logo-text">EAC</div>
-</div>
-<p style="margin-top:20px; letter-spacing:3px; color:#00f7ff;">
-INITIALIZING SYSTEM...
+<p class="welcome">
+Selamat Datang di EAC Community<br>
+Pusat eksplorasi astronomi dan inovasi tanpa batas.
 </p>
 </div>
 
+<div class="container" id="formContainer">
+<h2>Pendaftaran Kreator EAC</h2>
+<form id="eacForm">
+<input type="text" id="nama" placeholder="Nama" required>
+<input type="number" id="umur" placeholder="Umur" required>
+<select id="status" required>
+<option value="">Pilih Status</option>
+<option>Pelajar</option>
+<option>Pekerja</option>
+<option>Lainnya</option>
+</select>
+<textarea id="alasan" placeholder="Alasan ingin bergabung" required></textarea>
+<input type="text" id="tiktok" placeholder="Nama akun TikTok" required>
+<input type="text" id="film" placeholder="Film/Animasi favorit" required>
+<button type="submit">Daftar Sekarang</button>
+</form>
+</div>
+
 <script>
-function startSystem(){
-document.getElementById("loading").style.display="flex";
-setTimeout(function(){
-window.location.href="portal.html";
-},2000);
+// Generate Stars
+for(let i=0;i<80;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDuration=(1+Math.random()*2)+"s";
+document.body.appendChild(star);
 }
+
+// Fade to Form
+setTimeout(()=>{
+document.getElementById("opening").style.opacity="0";
+setTimeout(()=>{
+document.getElementById("opening").style.display="none";
+document.getElementById("formContainer").style.display="block";
+document.body.style.overflow="auto";
+},1000);
+},4000);
+
+// WhatsApp
+const WA="62887437875415";
+
+document.getElementById("eacForm").addEventListener("submit",function(e){
+e.preventDefault();
+const nama=nama.value;
+const umur=umur.value;
+const status=status.value;
+const alasan=alasan.value;
+const tiktok=tiktok.value;
+const film=film.value;
+
+const message=
+`Halo owner EAC! Saya mau mendaftar menjadi anggota kreator EAC.
+
+Nama: ${nama}
+Umur: ${umur}
+Status: ${status}
+Alasan: ${alasan}
+TikTok: ${tiktok}
+Film/Animasi: ${film}
+Screenshot akun TikTok: Silahkan dikirim ketika form telah menuju ke admin`;
+
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(message)}`,"_blank");
+});
 </script>
 
 </body>

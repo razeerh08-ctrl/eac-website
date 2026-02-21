@@ -21,7 +21,7 @@ text-align:center;
 position:relative;
 }
 
-/* Background stars */
+/* Background Stars */
 body::before{
 content:"";
 position:absolute;
@@ -34,7 +34,6 @@ animation:stars 60s linear infinite;
 pointer-events:none;
 z-index:-1;
 }
-
 @keyframes stars{
 from{transform:translate(0,0);}
 to{transform:translate(-400px,-400px);}
@@ -61,7 +60,6 @@ height:200px;
 margin-bottom:30px;
 animation:spin 12s linear infinite;
 }
-
 .ring{
 position:absolute;
 width:100%;
@@ -70,15 +68,12 @@ border:2px solid #00f7ff;
 border-radius:50%;
 box-shadow:0 0 20px #00f7ff;
 }
-
 .ring:nth-child(2){transform:rotate(60deg);}
 .ring:nth-child(3){transform:rotate(120deg);}
-
 @keyframes spin{
 from{transform:rotate(0deg);}
 to{transform:rotate(360deg);}
 }
-
 .logo-text{
 position:absolute;
 top:50%;
@@ -102,14 +97,13 @@ letter-spacing:2px;
 cursor:pointer;
 transition:0.3s;
 }
-
 .btn:hover{
 background:#00f7ff;
 color:black;
 box-shadow:0 0 20px #00f7ff;
 }
 
-/* Loading */
+/* Loading Screen */
 #loading{
 position:fixed;
 top:0;
@@ -124,27 +118,120 @@ flex-direction:column;
 z-index:9999;
 text-align:center;
 }
-
 .loading-text{
 margin-top:20px;
 letter-spacing:3px;
 color:#00f7ff;
 font-size:16px;
 }
+
+/* Portal Section */
+#portal{
+display:none;
+flex-direction:column;
+align-items:center;
+margin-top:40px;
+width:100%;
+position:relative;
+}
+.status{
+color:#00ff88;
+letter-spacing:3px;
+animation:blink 1.5s infinite;
+font-size:14px;
+}
+.title{
+letter-spacing:6px;
+font-size:28px;
+margin:10px 0;
+text-shadow:0 0 15px #a020f0;
+}
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0.4;}
+100%{opacity:1;}
+}
+
+/* Cards */
+.card{
+width:90%;
+max-width:420px;
+margin:20px auto;
+padding:20px;
+background:rgba(255,255,255,0.05);
+border:1px solid #a020f0;
+border-radius:15px;
+text-decoration:none;
+color:white;
+display:block;
+opacity:0;
+transform:translateY(40px);
+animation:appear 0.8s forwards;
+}
+.card:nth-of-type(1){animation-delay:0.3s;}
+.card:nth-of-type(2){animation-delay:0.6s;}
+.card:nth-of-type(3){animation-delay:0.9s;}
+.card:nth-of-type(4){animation-delay:1.2s;}
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+box-shadow:0 0 15px #a020f0;
+}
+}
+.card:hover{
+box-shadow:0 0 30px #a020f0;
+transform:translateY(-6px);
+transition:0.3s;
+}
+
+/* Atom kecil di portal utama */
+.portal-atom{
+position:absolute;
+top:20px;
+right:20px;
+width:100px;
+height:100px;
+animation:spin 15s linear infinite;
+z-index:10;
+}
+.portal-atom .ring{
+position:absolute;
+width:100%;
+height:100%;
+border:2px solid #00f7ff;
+border-radius:50%;
+box-shadow:0 0 10px #00f7ff;
+}
+.portal-atom .ring:nth-child(2){transform:rotate(60deg);}
+.portal-atom .ring:nth-child(3){transform:rotate(120deg);}
+.portal-atom .logo-text{
+position:absolute;
+top:50%;
+width:100%;
+text-align:center;
+transform:translateY(-50%);
+font-size:16px;
+letter-spacing:3px;
+font-weight:bold;
+text-shadow:0 0 10px #a020f0;
+}
 </style>
 </head>
 <body>
 
+<!-- Halaman Sambutan -->
+<div id="welcome-section">
 <div class="welcome">
 Halo semuanya!<br>
 Selamat datang di web EAC<br>
 Disini adalah tempat informasi seputar EAC
 </div>
-
 <div class="enter-text">Tekan tombol dibawah untuk masuk ke web</div>
-
 <button class="btn" onclick="startSystem()">MASUK KE WEB</button>
+</div>
 
+<!-- Loading -->
 <div id="loading">
 <div class="atom">
 <div class="ring"></div>
@@ -155,11 +242,47 @@ Disini adalah tempat informasi seputar EAC
 <div class="loading-text">INITIALIZING SYSTEM...</div>
 </div>
 
+<!-- Portal Utama -->
+<div id="portal">
+<!-- Atom Kecil Portal -->
+<div class="portal-atom">
+  <div class="ring"></div>
+  <div class="ring"></div>
+  <div class="ring"></div>
+  <div class="logo-text">EAC</div>
+</div>
+
+<div class="status">🟢 Sistem Online</div>
+<div class="title">Portal EAC</div>
+
+<a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" class="card" target="_blank">
+<h3>Saluran WhatsApp</h3>
+<p>Gabunglah ke saluran kami untuk mendapatkan informasi penting</p>
+</a>
+
+<a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" class="card" target="_blank">
+<h3>Komunitas EAC</h3>
+<p>Menuju masuk ke utama EAC</p>
+</a>
+
+<a href="https://razeerh08-ctrl.github.io/eac-registration/" class="card" target="_blank">
+<h3>Website Pendaftaran EAC</h3>
+<p>Tempat pendaftaran resmi untuk menjadi kreator EAC</p>
+</a>
+
+<a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" class="card" target="_blank">
+<h3>Official Account EAC</h3>
+<p>Menuju ke akun base EAC</p>
+</a>
+</div>
+
 <script>
 function startSystem(){
+document.getElementById("welcome-section").style.display="none";
 document.getElementById("loading").style.display="flex";
 setTimeout(function(){
-window.location.href="portal.html";
+document.getElementById("loading").style.display="none";
+document.getElementById("portal").style.display="flex";
 },2500);
 }
 </script>

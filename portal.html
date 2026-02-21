@@ -6,97 +6,150 @@
 <title>Portal EAC</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    text-align: center;
+body{
+margin:0;
+padding:0;
+background:#000;
+font-family:'Segoe UI',sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
 }
 
 /* Background bintang */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(white 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.05;
-    animation: moveStars 60s linear infinite;
-    z-index: -1;
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(white 1px,transparent 1px);
+background-size:50px 50px;
+opacity:0.05;
+animation:moveStars 80s linear infinite;
+z-index:-1;
 }
 
-@keyframes moveStars {
-    from { transform: translate(0,0); }
-    to { transform: translate(-500px,-500px); }
+@keyframes moveStars{
+from{transform:translate(0,0);}
+to{transform:translate(-500px,-500px);}
 }
 
-h2 {
-    margin-top: 40px;
-    color: #00ff88;
-    letter-spacing: 2px;
+/* ===== HEADER CYBER ===== */
+.header{
+margin-top:50px;
 }
 
-h1 {
-    letter-spacing: 4px;
-    margin-bottom: 30px;
+.status{
+color:#00ff88;
+letter-spacing:3px;
+animation:blink 1.5s infinite;
+font-size:14px;
 }
 
-/* Card Style */
-.card {
-    width: 90%;
-    max-width: 400px;
-    margin: 15px auto;
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid #a020f0;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
+.title{
+letter-spacing:6px;
+font-size:30px;
+margin:10px 0;
+text-shadow:0 0 15px #a020f0;
 }
 
-.card:hover {
-    box-shadow: 0 0 20px #a020f0;
-    transform: translateY(-5px);
+.sub{
+opacity:0.6;
+letter-spacing:2px;
+font-size:13px;
 }
 
-.card h3 {
-    margin: 10px 0;
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0.4;}
+100%{opacity:1;}
 }
 
-.card p {
-    font-size: 14px;
-    opacity: 0.8;
+/* ===== CARD CYBER ===== */
+.card{
+width:90%;
+max-width:420px;
+margin:18px auto;
+padding:20px;
+background:rgba(255,255,255,0.05);
+border:1px solid #a020f0;
+border-radius:15px;
+backdrop-filter:blur(10px);
+text-decoration:none;
+color:white;
+display:block;
+
+/* animasi awal */
+opacity:0;
+transform:translateY(40px);
+animation:cyberAppear 0.8s forwards;
+}
+
+/* delay tiap card */
+.card:nth-of-type(1){ animation-delay:0.3s; }
+.card:nth-of-type(2){ animation-delay:0.6s; }
+.card:nth-of-type(3){ animation-delay:0.9s; }
+.card:nth-of-type(4){ animation-delay:1.2s; }
+
+@keyframes cyberAppear{
+0%{
+opacity:0;
+transform:translateY(40px);
+box-shadow:0 0 0px #a020f0;
+}
+100%{
+opacity:1;
+transform:translateY(0);
+box-shadow:0 0 15px #a020f0;
+}
+}
+
+.card:hover{
+box-shadow:0 0 30px #a020f0;
+transform:translateY(-6px);
+transition:0.3s;
+}
+
+.card h3{
+margin:8px 0;
+letter-spacing:2px;
+}
+
+.card p{
+font-size:14px;
+opacity:0.8;
+margin-top:8px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>🟢 SISTEM ONLINE</h2>
-<h1>PORTAL EAC</h1>
-
-<div class="card">
-<h3>Saluran WhatsApp</h3>
-<p>Gabunglah ke saluran kami untuk mendapatkan informasi penting terbaru.</p>
+<div class="header">
+<div class="status">[ STATUS : ONLINE ]</div>
+<div class="title">PORTAL EAC v1.0</div>
+<div class="sub">AUTHORIZED ACCESS</div>
 </div>
 
-<div class="card">
+<a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" target="_blank" class="card">
+<h3>Saluran WhatsApp EAC</h3>
+<p>Bergabunglah ke saluran kami untuk mendapatkan informasi penting.</p>
+</a>
+
+<a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" target="_blank" class="card">
 <h3>Komunitas EAC</h3>
-<p>Masuk ke pusat komunitas utama EAC dan berdiskusi bersama anggota lainnya.</p>
-</div>
+<p>Menuju masuk ke utama EAC.</p>
+</a>
 
-<div class="card">
+<a href="https://razeerh08-ctrl.github.io/eac-registration/" target="_blank" class="card">
 <h3>Website Pendaftaran EAC</h3>
-<p>Tempat pendaftaran resmi untuk menjadi kreator dan bagian dari EAC.</p>
-</div>
+<p>Tempat pendaftaran resmi untuk menjadi kreator EAC.</p>
+</a>
 
-<div class="card">
+<a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" target="_blank" class="card">
 <h3>Official Account EAC</h3>
-<p>Kunjungi akun base resmi EAC untuk update dan konten terbaru.</p>
-</div>
+<p>Menuju ke akun base EAC.</p>
+</a>
 
 </body>
-  </html>
+</html>

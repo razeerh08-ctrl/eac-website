@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EAC Portal</title>
+<title>EAC Portal Futuristik</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -51,7 +51,7 @@ color:#00f7ff;
 letter-spacing:1px;
 }
 
-/* Atom Logo */
+/* Atom Logo (Loading) */
 .atom{
 position:relative;
 width:200px;
@@ -66,7 +66,7 @@ width:100%;
 height:100%;
 border:2px solid #00f7ff;
 border-radius:50%;
-box-shadow:0 0 20px #00f7ff;
+box-shadow:0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
 }
 .ring:nth-child(2){transform:rotate(60deg);}
 .ring:nth-child(3){transform:rotate(120deg);}
@@ -83,7 +83,7 @@ transform:translateY(-50%);
 font-size:30px;
 letter-spacing:6px;
 font-weight:bold;
-text-shadow:0 0 15px #a020f0;
+text-shadow:0 0 20px #a020f0, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
 }
 
 /* Button */
@@ -100,7 +100,7 @@ transition:0.3s;
 .btn:hover{
 background:#00f7ff;
 color:black;
-box-shadow:0 0 20px #00f7ff;
+box-shadow:0 0 20px #00f7ff,0 0 40px #00f7ff;
 }
 
 /* Loading Screen */
@@ -144,7 +144,7 @@ font-size:14px;
 letter-spacing:6px;
 font-size:28px;
 margin:10px 0;
-text-shadow:0 0 15px #a020f0;
+text-shadow:0 0 20px #a020f0, 0 0 40px #00f7ff;
 }
 @keyframes blink{
 0%{opacity:1;}
@@ -167,6 +167,7 @@ display:block;
 opacity:0;
 transform:translateY(40px);
 animation:appear 0.8s forwards;
+box-shadow:0 0 10px #00f7ff;
 }
 .card:nth-of-type(1){animation-delay:0.3s;}
 .card:nth-of-type(2){animation-delay:0.6s;}
@@ -176,22 +177,22 @@ animation:appear 0.8s forwards;
 to{
 opacity:1;
 transform:translateY(0);
-box-shadow:0 0 15px #a020f0;
+box-shadow:0 0 25px #a020f0,0 0 50px #00f7ff;
 }
 }
 .card:hover{
-box-shadow:0 0 30px #a020f0;
+box-shadow:0 0 40px #a020f0,0 0 80px #00f7ff;
 transform:translateY(-6px);
 transition:0.3s;
 }
 
-/* Atom kecil di portal utama */
+/* Atom kecil di portal utama (futuristic) */
 .portal-atom{
 position:absolute;
 top:20px;
 right:20px;
-width:100px;
-height:100px;
+width:120px;
+height:120px;
 animation:spin 15s linear infinite;
 z-index:9999;
 }
@@ -201,7 +202,7 @@ width:100%;
 height:100%;
 border:2px solid #00f7ff;
 border-radius:50%;
-box-shadow:0 0 10px #00f7ff;
+box-shadow:0 0 15px #00f7ff,0 0 30px #00f7ff,0 0 50px #a020f0;
 }
 .portal-atom .ring:nth-child(2){transform:rotate(60deg);}
 .portal-atom .ring:nth-child(3){transform:rotate(120deg);}
@@ -211,10 +212,10 @@ top:50%;
 width:100%;
 text-align:center;
 transform:translateY(-50%);
-font-size:16px;
-letter-spacing:3px;
+font-size:18px;
+letter-spacing:4px;
 font-weight:bold;
-text-shadow:0 0 10px #a020f0;
+text-shadow:0 0 15px #a020f0,0 0 30px #00f7ff;
 }
 </style>
 </head>
@@ -288,4 +289,4 @@ document.getElementById("portal").style.display="flex";
 </script>
 
 </body>
-</html>
+  </html>

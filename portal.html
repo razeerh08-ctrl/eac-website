@@ -5,18 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal EAC</title>
 
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta property="og:title" content="Portal EAC">
+<meta property="og:description" content="Dashboard resmi komunitas EAC">
+<meta property="og:type" content="website">
+
 <style>
 body{
 margin:0;
 padding:0;
 background:#000;
-font-family:'Segoe UI',sans-serif;
+font-family:Arial, sans-serif;
 color:white;
 text-align:center;
 overflow-x:hidden;
 }
 
-/* Background bintang */
 body::before{
 content:"";
 position:fixed;
@@ -26,6 +31,7 @@ background:radial-gradient(white 1px,transparent 1px);
 background-size:50px 50px;
 opacity:0.05;
 animation:moveStars 80s linear infinite;
+pointer-events:none;
 z-index:-1;
 }
 
@@ -34,9 +40,8 @@ from{transform:translate(0,0);}
 to{transform:translate(-500px,-500px);}
 }
 
-/* ===== HEADER CYBER ===== */
 .header{
-margin-top:50px;
+margin-top:60px;
 }
 
 .status{
@@ -48,15 +53,9 @@ font-size:14px;
 
 .title{
 letter-spacing:6px;
-font-size:30px;
+font-size:28px;
 margin:10px 0;
 text-shadow:0 0 15px #a020f0;
-}
-
-.sub{
-opacity:0.6;
-letter-spacing:2px;
-font-size:13px;
 }
 
 @keyframes blink{
@@ -65,39 +64,29 @@ font-size:13px;
 100%{opacity:1;}
 }
 
-/* ===== CARD CYBER ===== */
 .card{
 width:90%;
 max-width:420px;
-margin:18px auto;
+margin:20px auto;
 padding:20px;
 background:rgba(255,255,255,0.05);
 border:1px solid #a020f0;
 border-radius:15px;
-backdrop-filter:blur(10px);
 text-decoration:none;
 color:white;
 display:block;
-
-/* animasi awal */
 opacity:0;
 transform:translateY(40px);
-animation:cyberAppear 0.8s forwards;
+animation:appear 0.8s forwards;
 }
 
-/* delay tiap card */
-.card:nth-of-type(1){ animation-delay:0.3s; }
-.card:nth-of-type(2){ animation-delay:0.6s; }
-.card:nth-of-type(3){ animation-delay:0.9s; }
-.card:nth-of-type(4){ animation-delay:1.2s; }
+.card:nth-of-type(1){animation-delay:0.3s;}
+.card:nth-of-type(2){animation-delay:0.6s;}
+.card:nth-of-type(3){animation-delay:0.9s;}
+.card:nth-of-type(4){animation-delay:1.2s;}
 
-@keyframes cyberAppear{
-0%{
-opacity:0;
-transform:translateY(40px);
-box-shadow:0 0 0px #a020f0;
-}
-100%{
+@keyframes appear{
+to{
 opacity:1;
 transform:translateY(0);
 box-shadow:0 0 15px #a020f0;
@@ -109,17 +98,6 @@ box-shadow:0 0 30px #a020f0;
 transform:translateY(-6px);
 transition:0.3s;
 }
-
-.card h3{
-margin:8px 0;
-letter-spacing:2px;
-}
-
-.card p{
-font-size:14px;
-opacity:0.8;
-margin-top:8px;
-}
 </style>
 </head>
 
@@ -128,27 +106,26 @@ margin-top:8px;
 <div class="header">
 <div class="status">[ STATUS : ONLINE ]</div>
 <div class="title">PORTAL EAC v1.0</div>
-<div class="sub">AUTHORIZED ACCESS</div>
 </div>
 
-<a href="https://whatsapp.com/channel/0029VbCN4sQLo4hhDCkOHX1m" target="_blank" class="card">
-<h3>Saluran WhatsApp EAC</h3>
-<p>Bergabunglah ke saluran kami untuk mendapatkan informasi penting.</p>
+<a href="#" class="card">
+<h3>Saluran WhatsApp</h3>
+<p>Informasi resmi EAC</p>
 </a>
 
-<a href="https://chat.whatsapp.com/J3oPwax10tE8QFQVkBylMS" target="_blank" class="card">
+<a href="#" class="card">
 <h3>Komunitas EAC</h3>
-<p>Menuju masuk ke utama EAC.</p>
+<p>Bergabung dengan member</p>
 </a>
 
-<a href="https://razeerh08-ctrl.github.io/eac-registration/" target="_blank" class="card">
-<h3>Website Pendaftaran EAC</h3>
-<p>Tempat pendaftaran resmi untuk menjadi kreator EAC.</p>
+<a href="#" class="card">
+<h3>Pendaftaran Kreator</h3>
+<p>Daftar menjadi bagian EAC</p>
 </a>
 
-<a href="https://www.tiktok.com/@margaeac?_r=1&_t=ZS-9441mIIZLhE" target="_blank" class="card">
-<h3>Official Account EAC</h3>
-<p>Menuju ke akun base EAC.</p>
+<a href="#" class="card">
+<h3>Official TikTok</h3>
+<p>Kunjungi akun resmi</p>
 </a>
 
 </body>
